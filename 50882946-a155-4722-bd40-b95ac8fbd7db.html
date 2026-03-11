@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>甚矣吾衰矣 - Suno Player</title>
+  
+  <!-- 专门为推特爬虫准备的静态卡片信息 -->
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:title" content="甚矣吾衰矣 - Suno Song">
+  <meta name="twitter:description" content="AI Music generation. Click to listen.">
+  <meta name="twitter:image" content="https://cdn1.suno.ai/image_50882946-a155-4722-bd40-b95ac8fbd7db.jpeg">
+  <meta name="twitter:player" content="https://wmefanit.github.io/suno-player/50882946-a155-4722-bd40-b95ac8fbd7db.html">
+  <meta name="twitter:player:width" content="480">
+  <meta name="twitter:player:height" content="600">
+  
+  <meta property="og:title" content="甚矣吾衰矣 - Suno">
+  <meta property="og:image" content="https://cdn1.suno.ai/image_50882946-a155-4722-bd40-b95ac8fbd7db.jpeg">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <style>
+    body { background: #121212; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; padding: 20px 0; }
+    #wrap { width: 90%; max-width: 480px; background: #1e1e1e; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+    #lyrics-box { width: 90%; max-width: 480px; background: #1e1e1e; padding: 20px; border-radius: 12px; white-space: pre-wrap; line-height: 1.6; font-size: 15px; color: #ccc; margin-bottom: 20px; }
+    .footer-link { text-align: center; font-size: 14px; margin-bottom: 30px; }
+    .footer-link a { color: #ffa500; text-decoration: none; padding: 10px 20px; border: 1px solid #ffa500; border-radius: 20px; transition: 0.3s; }
+    .footer-link a:hover { background: #ffa500; color: #121212; }
+    .aplayer { background: #2a2a2a !important; color: #fff !important; }
+    .aplayer-lrc { display: none !important; }
+  </style>
+</head>
+<body>
+  <div id="wrap"><div id="player"></div></div>
+  <div class="footer-link">
+     <a href="https://suno.com/s/TfjuC7qcfeRdubBy" target="_blank">🔗 点击在 Suno 官网原址收听</a>
+  </div>
+  <div id="lyrics-box">[Intro]
+[Ethereal Chant, A cappella]
+Hoi! Ya-ya... Hoi-ya...
+Hoi! Ya-ya... Hoi-ya...
+
+[Verse 1]
+[Slow, Sparse Guqin, Free tempo]
+停云 霭霭，时雨 濛濛。
+[Instrumental Fill]
+八表 同昏，平陆 成江。
+[Instrumental Fill]
+白发，空垂三千丈...
+一笑，人间万事。
+
+[Pre-Chorus]
+[Distant Chant]
+Loi-ya-hei... Loi-ya-hei...
+
+[Chorus]
+[Steady Beat, Frame Drum enters, Epic]
+我见 青山 多妩媚，
+料青山 见我 应如是。
+情与貌，略相似...
+
+在这万古的 寂静里，
+我借一场 狂风，
+吹乱一头 人间雪！
+
+任凭风云起，天地自苍茫。
+浊醪一杯，与山对望。
+
+[Verse 2]
+[Drop, Beat stops, Slow Guqin]
+不恨古人 吾不见，
+恨古人、不见吾狂耳！
+[Instrumental Fill]
+千峰 独立，万壑 无声。
+白发 对青山，
+谁解此意？
+
+[Bridge]
+[Tribal Drum, Call and Response]
+Hoi-ya-ya... (Loi-ya-hei...)
+Hoi-ya-ya... (Loi-ya-hei...)
+
+万壑噤言，青山独立。
+吾心之野，唯入长风！
+
+这一腔、孤往之意...
+青山不语，
+我，亦不语。
+
+[Chorus]
+[Climax, Full Instrumentation, Grand]
+我见 青山，青山 见我，
+略相似！
+
+在这万古的 寂静里，
+我借一场 狂风，
+吹乱一头 人间雪！
+
+古人不见 吾狂耳！
+吾狂耳！
+吾狂耳——！
+
+[Outro]
+[Echoing Chant, Ambient]
+Hoi-ya-ya...
+Loi-ya-hei...
+[Wind Sound]
+[Fade Out]
+[End]</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script>
+    new APlayer({
+      container: document.getElementById('player'),
+      audio: [{
+        name: '甚矣吾衰矣',
+        artist: 'Suno AI',
+        url: 'https://cdn1.suno.ai/50882946-a155-4722-bd40-b95ac8fbd7db.mp3',
+        cover: 'https://cdn1.suno.ai/image_50882946-a155-4722-bd40-b95ac8fbd7db.jpeg',
+        theme: '#ffa500'
+      }]
+    });
+  </script>
+</body>
+</html>
