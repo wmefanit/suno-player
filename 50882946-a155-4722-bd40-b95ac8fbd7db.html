@@ -26,9 +26,8 @@
     .lang-btn { background:transparent; border:1px solid #555; color:#999; border-radius:12px; padding:3px 12px; font-size:12px; cursor:pointer; }
     .lang-btn.active { border-color:#ffa500; color:#ffa500; }
     .footer-link { text-align:center; font-size:14px; margin-bottom:20px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
-    .footer-link a, .footer-link button { color:#ffa500; text-decoration:none; padding:10px 20px; border:1px solid #ffa500; border-radius:20px; transition:0.3s; background:transparent; font-size:14px; cursor:pointer; }
-    .footer-link a:hover, .footer-link button:hover { background:#ffa500; color:#121212; }
-    .footer-link button.copied { border-color:#4caf50; color:#4caf50; }
+    .footer-link a { color:#ffa500; text-decoration:none; padding:10px 20px; border:1px solid #ffa500; border-radius:20px; transition:0.3s; font-size:14px; }
+    .footer-link a:hover { background:#ffa500; color:#121212; }
     #lyrics-label { width:90%; max-width:480px; font-size:12px; color:#555; margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
     #lyrics-box { width:90%; max-width:480px; background:#1e1e1e; padding:20px; border-radius:12px; white-space:pre-wrap; line-height:1.8; font-size:15px; color:#ccc; margin-bottom:30px; }
     .aplayer { background:#2a2a2a !important; color:#fff !important; }
@@ -43,7 +42,7 @@
   <div id="wrap"><div id="player"></div></div>
   <div class="footer-link">
     <a id="suno-link" href="https://suno.com/song/50882946-a155-4722-bd40-b95ac8fbd7db?sh=TfjuC7qcfeRdubBy" target="_blank"></a>
-    <button id="copy-btn" onclick="copyLink()"></button>
+    <a id="self-link" href="https://wmefanit.github.io/suno-player/50882946-a155-4722-bd40-b95ac8fbd7db.html" target="_blank"></a>
   </div>
   <div id="lyrics-label"></div>
   <div id="lyrics-box">[Intro]
@@ -124,39 +123,24 @@ Loi-ya-hei...
     const i18n = {
       zh: {
         sunoLink: '🔗 点击在 Suno 官网原址收听',
+        selfLink: '📄 在本站收听（含歌词）',
         lyricsLabel: '歌词 / Lyrics',
-        copyBtn: '🔗 复制本站收听链接',
-        copyDone: '✅ 已复制！',
       },
       en: {
         sunoLink: '🔗 Listen on Suno',
+        selfLink: '📄 Listen here (with lyrics)',
         lyricsLabel: 'Lyrics',
-        copyBtn: '🔗 Share this page',
-        copyDone: '✅ Copied!',
       }
     };
 
     function setLang(lang) {
       const t = i18n[lang];
       document.getElementById('suno-link').textContent = t.sunoLink;
+      document.getElementById('self-link').textContent = t.selfLink;
       document.getElementById('lyrics-label').textContent = t.lyricsLabel;
-      document.getElementById('copy-btn').textContent = t.copyBtn;
       document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       localStorage.setItem('suno_lang', lang);
-    }
-
-    function copyLink() {
-      const btn = document.getElementById('copy-btn');
-      const lang = localStorage.getItem('suno_lang') || 'en';
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        btn.textContent = i18n[lang].copyDone;
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = i18n[lang].copyBtn;
-          btn.classList.remove('copied');
-        }, 2000);
-      });
     }
 
     // 自动检测浏览器语言，默认跟随系统
