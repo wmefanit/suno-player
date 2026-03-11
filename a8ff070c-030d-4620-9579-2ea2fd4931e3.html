@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4O2 - Suno Player</title>
+
+  <!-- Twitter/X 卡片静态 meta -->
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:title" content="4O2 · Suno AI Music">
+  <meta name="twitter:description" content="AI-generated music. Click to listen with lyrics.">
+  <meta name="twitter:image" content="https://cdn1.suno.ai/image_a8ff070c-030d-4620-9579-2ea2fd4931e3.jpeg">
+  <meta name="twitter:player" content="https://wmefanit.github.io/suno-player/a8ff070c-030d-4620-9579-2ea2fd4931e3.html">
+  <meta name="twitter:player:width" content="480">
+  <meta name="twitter:player:height" content="600">
+  <meta property="og:title" content="4O2 - Suno">
+  <meta property="og:image" content="https://cdn1.suno.ai/image_a8ff070c-030d-4620-9579-2ea2fd4931e3.jpeg">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <style>
+    body { background:#121212; color:#fff; font-family:sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; margin:0; padding:20px 0; }
+    #wrap { width:90%; max-width:480px; background:#1e1e1e; padding:20px; border-radius:12px; margin-bottom:16px; }
+    .lang-bar { width:90%; max-width:480px; display:flex; justify-content:flex-end; gap:8px; margin-bottom:8px; }
+    .lang-btn { background:transparent; border:1px solid #555; color:#999; border-radius:12px; padding:3px 12px; font-size:12px; cursor:pointer; }
+    .lang-btn.active { border-color:#ffa500; color:#ffa500; }
+    .footer-link { text-align:center; font-size:14px; margin-bottom:20px; }
+    .footer-link a { color:#ffa500; text-decoration:none; padding:10px 20px; border:1px solid #ffa500; border-radius:20px; transition:0.3s; }
+    .footer-link a:hover { background:#ffa500; color:#121212; }
+    #lyrics-label { width:90%; max-width:480px; font-size:12px; color:#555; margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
+    #lyrics-box { width:90%; max-width:480px; background:#1e1e1e; padding:20px; border-radius:12px; white-space:pre-wrap; line-height:1.8; font-size:15px; color:#ccc; margin-bottom:30px; }
+    .aplayer { background:#2a2a2a !important; color:#fff !important; }
+    .aplayer-lrc { display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="lang-bar">
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <div id="wrap"><div id="player"></div></div>
+  <div class="footer-link">
+    <a id="suno-link" href="https://suno.com/song/a8ff070c-030d-4620-9579-2ea2fd4931e3?sh=H5KkubZLdl6sKE6R" target="_blank"></a>
+  </div>
+  <div id="lyrics-label"></div>
+  <div id="lyrics-box">[Intro]
+(rain on glass)  (bus engine hum)
+(Soft Rhodes chords fade in)
+
+[Verse 1]
+The Four-Oh-Two is rattling in the rain
+Rain streaking down like a heavy iron stain
+I saw your passport, saw the shade of your hand
+And I built a box where I thought you should stand
+I clutched my bag, I checked the exit door
+Mapped out your country by the sounds on the floor
+I thought I knew the story, I thought I knew the end
+Just by the way your vowels started to bend
+
+[Pre-Chorus]
+The wheels keep time, the wipers draw a line
+And in that hush, your breath crosses mine...
+
+[Chorus]
+Four  -  Oh  -  Two     snap  the  skin
+Four  -  Oh  -  Two     let  you  in
+One  slice  yours     one  slice  mine
+Four  -  Oh  -  Two     bitter  gone
+Four  -  Oh  -  Two     moving  on
+Tasting  the  truth     of  the  dividing  line
+Four  -  Oh  -  Two     peel  it  peel  it
+Four  -  Oh  -  Two     split  it  split  it
+One  slice  yours     one  slice  mine
+
+[Verse 2]
+Then you pulled a sun from a pocket of grey
+A bright little orange in the middle of the day
+You cracked the peel with a thumbnail snap
+And a mist of gold filled the gap in the map
+You offered a segment, juice on your thumb
+I felt my foolishness starting to hum
+I took the fruit, you gave a little grin
+Sticky fingers on the rail, letting the air in
+
+[Chorus]
+Four  -  Oh  -  Two     snap  the  skin
+Four  -  Oh  -  Two     let  you  in
+One  slice  yours     one  slice  mine
+Four  -  Oh  -  Two     bitter  gone
+Four  -  Oh  -  Two     moving  on
+Tasting  the  truth     of  the  dividing  line
+
+[Bridge]
+(Rhythm drops - Bass heavy)
+Beep in the rain, another soul on the ride
+Hiss of the brakes, no nowhere to hide
+The aisle breathes out, the engine finds the sway
+The bitter rind is falling, falling away
+It’s not a big speech, it’s not a grand plan
+Just a piece of fruit in a stranger’s hand
+
+[Final Chorus]
+(Full instrumentation kicks in)
+Four  -  Oh  -  Two     snap  the  skin
+Four  -  Oh  -  Two     let  you  in
+One  slice  yours     one  slice  mine
+Four  -  Oh  -  Two     bitter  gone
+Four  -  Oh  -  Two     moving  on
+Tasting  the  truth     of  the  dividing  line
+Four  -  Oh  -  Two     taste  it  taste  it
+Four  -  Oh  -  Two     feel  it  feel  it
+One  slice  yours     one  slice  mine
+
+[Outro]
+(Music starts to strip back, rain sound returns)
+Rain  keeps  falling     the  scent  stays  sweet
+A  little  bit  of  peace     on  a  bus-stop  seat
+Step  onto  the  pavement     the  bus  pulls  away
+Everything  is  different     in  the  Four-Oh-Two  grey...
+
+Four  -  Oh  -  Two...
+Four  -  Oh  -  Two...
+(Fade out with a single chime)</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script>
+    const i18n = {
+      zh: {
+        sunoLink: '🔗 点击在 Suno 官网原址收听',
+        lyricsLabel: '歌词 / Lyrics',
+      },
+      en: {
+        sunoLink: '🔗 Listen on Suno',
+        lyricsLabel: 'Lyrics',
+      }
+    };
+
+    function setLang(lang) {
+      const t = i18n[lang];
+      document.getElementById('suno-link').textContent = t.sunoLink;
+      document.getElementById('lyrics-label').textContent = t.lyricsLabel;
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('suno_lang', lang);
+    }
+
+    // 自动检测浏览器语言，默认跟随系统
+    const saved = localStorage.getItem('suno_lang');
+    const auto = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    setLang(saved || auto);
+
+    new APlayer({
+      container: document.getElementById('player'),
+      audio: [{
+        name: '4O2',
+        artist: 'Suno AI',
+        url: 'https://cdn1.suno.ai/a8ff070c-030d-4620-9579-2ea2fd4931e3.mp3',
+        cover: 'https://cdn1.suno.ai/image_a8ff070c-030d-4620-9579-2ea2fd4931e3.jpeg',
+        theme: '#ffa500'
+      }]
+    });
+  </script>
+</body>
+</html>
