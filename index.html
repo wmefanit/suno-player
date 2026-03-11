@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suno Player</title>
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:title" content="Suno Song">
+  <meta name="twitter:player:width" content="480">
+  <meta name="twitter:player:height" content="480">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <style>
+    body{background:#121212;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
+    #wrap{width:90%;max-width:480px;background:#1e1e1e;padding:20px;border-radius:12px}
+    .aplayer{background:#2a2a2a!important;color:#fff!important}
+    .aplayer .aplayer-lrc p.aplayer-lrc-current{color:#ffa500!important}
+  </style>
+</head>
+<body>
+  <div id="wrap"><div id="player"></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const songId = params.get('id');
+    if (!songId) { document.body.innerHTML='<h3 style="text-align:center;margin-top:40vh">请提供 ?id=歌曲ID</h3>'; throw new Error('no id'); }
+
+    fetch('https://studio-api.prod.suno.com/api/clip/' + songId)
+      .then(r => r.json())
+      .then(data => {
+        const title = data.title || 'Untitled';
+        const audio  = data.audio_url || 'https://cdn1.suno.ai/' + songId + '.mp3';
+        const cover = 'https://cdn1.suno.ai/image_' + songId + '.jpeg';
+        const prompt = (data.metadata && data.metadata.prompt) || '';
+        const lrc = prompt.split('\n').map((line, i) => {
+          const m = Math.floor(i*5/60); const s = (i*5)%60;
+          return '[' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0') + '.00]' + line;
+        }).join('\n');
+
+        document.title = title + ' - Suno';
+        new APlayer({
+          container: document.getElementById('player'),
+          lrcType: 1,
+          audio: [{ name: title, artist: 'Suno', url: audio, cover: cover, lrc: lrc, theme: '#ffa500' }]
+        });
+      })
+      .catch(e => { document.body.innerHTML = '<h3 style="text-align:center;margin-top:40vh">加载失败</h3>'; });
+  </script>
+</body>
+</html>
