@@ -91,6 +91,8 @@ def generate_html(info):
   <meta name="twitter:player:height" content="600">
   <meta property="og:title" content="{safe_title} - Suno">
   <meta property="og:image" content="{info['cover']}">
+  <meta property="og:url" content="{page_url}">
+  <link rel="canonical" href="{page_url}">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
   <style>
@@ -99,8 +101,8 @@ def generate_html(info):
     .lang-bar {{ width:90%; max-width:480px; display:flex; justify-content:flex-end; gap:8px; margin-bottom:8px; }}
     .lang-btn {{ background:transparent; border:1px solid #555; color:#999; border-radius:12px; padding:3px 12px; font-size:12px; cursor:pointer; }}
     .lang-btn.active {{ border-color:#ffa500; color:#ffa500; }}
-    .footer-link {{ text-align:center; font-size:14px; margin-bottom:20px; }}
-    .footer-link a {{ color:#ffa500; text-decoration:none; padding:10px 20px; border:1px solid #ffa500; border-radius:20px; transition:0.3s; }}
+    .footer-link {{ text-align:center; font-size:14px; margin-bottom:20px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }}
+    .footer-link a {{ color:#ffa500; text-decoration:none; padding:10px 20px; border:1px solid #ffa500; border-radius:20px; transition:0.3s; font-size:14px; }}
     .footer-link a:hover {{ background:#ffa500; color:#121212; }}
     #lyrics-label {{ width:90%; max-width:480px; font-size:12px; color:#555; margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }}
     #lyrics-box {{ width:90%; max-width:480px; background:#1e1e1e; padding:20px; border-radius:12px; white-space:pre-wrap; line-height:1.8; font-size:15px; color:#ccc; margin-bottom:30px; }}
@@ -116,6 +118,7 @@ def generate_html(info):
   <div id="wrap"><div id="player"></div></div>
   <div class="footer-link">
     <a id="suno-link" href="{info['original_url']}" target="_blank"></a>
+    <a id="self-link" href="{page_url}" target="_blank"></a>
   </div>
   <div id="lyrics-label"></div>
   <div id="lyrics-box">{safe_prompt}</div>
@@ -125,10 +128,12 @@ def generate_html(info):
     const i18n = {{
       zh: {{
         sunoLink: '🔗 点击在 Suno 官网原址收听',
+        selfLink: '📄 在本站收听（含歌词）',
         lyricsLabel: '歌词 / Lyrics',
       }},
       en: {{
         sunoLink: '🔗 Listen on Suno',
+        selfLink: '📄 Listen here (with lyrics)',
         lyricsLabel: 'Lyrics',
       }}
     }};
@@ -136,6 +141,7 @@ def generate_html(info):
     function setLang(lang) {{
       const t = i18n[lang];
       document.getElementById('suno-link').textContent = t.sunoLink;
+      document.getElementById('self-link').textContent = t.selfLink;
       document.getElementById('lyrics-label').textContent = t.lyricsLabel;
       document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
