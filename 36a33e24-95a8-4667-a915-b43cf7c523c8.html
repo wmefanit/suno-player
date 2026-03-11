@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Coro Bajo la Torre - Suno Player</title>
+
+  <!-- Twitter/X 卡片静态 meta -->
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:title" content="El Coro Bajo la Torre · Suno AI Music">
+  <meta name="twitter:description" content="AI-generated music. Click to listen with lyrics.">
+  <meta name="twitter:image" content="https://cdn1.suno.ai/image_36a33e24-95a8-4667-a915-b43cf7c523c8.jpeg">
+  <meta name="twitter:player" content="https://wmefanit.github.io/suno-player/36a33e24-95a8-4667-a915-b43cf7c523c8.html">
+  <meta name="twitter:player:width" content="480">
+  <meta name="twitter:player:height" content="600">
+  <meta property="og:title" content="El Coro Bajo la Torre - Suno">
+  <meta property="og:image" content="https://cdn1.suno.ai/image_36a33e24-95a8-4667-a915-b43cf7c523c8.jpeg">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <style>
+    body { background:#121212; color:#fff; font-family:sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; margin:0; padding:20px 0; }
+    #wrap { width:90%; max-width:480px; background:#1e1e1e; padding:20px; border-radius:12px; margin-bottom:16px; }
+    .lang-bar { width:90%; max-width:480px; display:flex; justify-content:flex-end; gap:8px; margin-bottom:8px; }
+    .lang-btn { background:transparent; border:1px solid #555; color:#999; border-radius:12px; padding:3px 12px; font-size:12px; cursor:pointer; }
+    .lang-btn.active { border-color:#ffa500; color:#ffa500; }
+    .footer-link { text-align:center; font-size:14px; margin-bottom:20px; }
+    .footer-link a { color:#ffa500; text-decoration:none; padding:10px 20px; border:1px solid #ffa500; border-radius:20px; transition:0.3s; }
+    .footer-link a:hover { background:#ffa500; color:#121212; }
+    #lyrics-label { width:90%; max-width:480px; font-size:12px; color:#555; margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
+    #lyrics-box { width:90%; max-width:480px; background:#1e1e1e; padding:20px; border-radius:12px; white-space:pre-wrap; line-height:1.8; font-size:15px; color:#ccc; margin-bottom:30px; }
+    .aplayer { background:#2a2a2a !important; color:#fff !important; }
+    .aplayer-lrc { display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="lang-bar">
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <div id="wrap"><div id="player"></div></div>
+  <div class="footer-link">
+    <a id="suno-link" href="https://suno.com/song/36a33e24-95a8-4667-a915-b43cf7c523c8?sh=oHbawqp6NsXGrxGF" target="_blank"></a>
+  </div>
+  <div id="lyrics-label"></div>
+  <div id="lyrics-box">[Intro]
+Bajo la torre cantamos todos,
+boca sin alma, ojos sin sueño.
+&quot;Todo va bien&quot;, repite la voz,
+y el pueblo afina el miedo en Do mayor.
+
+[Verse 1]
+A las siete suena la sirena,
+se enfría el pan, se congela la escena.
+Doña Rosa deja la escoba en el suelo,
+el niño suelta el juguete y mira al cielo.
+Desde la torre baja la consigna,
+otra canción, otra voz que vigila.
+&quot;Canten más fuerte, que el mundo nos ve&quot;,
+y el que desafina, ya no se le ve.
+
+[Chorus]
+Bajo la torre, todos a cantar,
+&quot;todo va bien&quot;, vuelven a gritar.
+Uno, dos, tres, filas sin final,
+mueve la boca, no mires atrás.
+Bajo la torre suena el mismo acorde,
+nombres borrados, la luz que se esconde.
+Hoy hace viento, sopla desde el norte,
+se lleva a uno más, sin que a nadie le importe.
+
+[Verse 2]
+Los altavoces cuelgan como frutos,
+dan sombra al miedo, iluminan lutos.
+El viejo del quiosco vende silencios,
+ya no hay periódicos, solo decretos.
+Los niños aprenden primero el estribillo,
+antes de andar o de hablar con sigilo.
+Saben que hay calles que cambian de nombre,
+pero la torre nunca se esconde.
+
+[Bridge]
+Un día la torre se quedó callada,
+sin noticiero, sin orden, sin nada.
+Pero a las siete el pueblo se alineó,
+sin partitura, la voz les salió.
+Era costumbre, era el temor,
+era la letra pegada al corazón.
+Y la torre muda empezó a vibrar,
+para obligarlos de nuevo a marchar.
+
+[Chorus]
+Bajo la torre, todos a cantar,
+&quot;todo va bien&quot;, vuelven a gritar.
+Uno, dos, tres, filas sin final,
+mueve la boca, no mires atrás.
+
+[Outro]
+Hoy hace viento dentro de la piel...
+
+Aunque callemos... canta el papel.
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script>
+    const i18n = {
+      zh: {
+        sunoLink: '🔗 点击在 Suno 官网原址收听',
+        lyricsLabel: '歌词 / Lyrics',
+      },
+      en: {
+        sunoLink: '🔗 Listen on Suno',
+        lyricsLabel: 'Lyrics',
+      }
+    };
+
+    function setLang(lang) {
+      const t = i18n[lang];
+      document.getElementById('suno-link').textContent = t.sunoLink;
+      document.getElementById('lyrics-label').textContent = t.lyricsLabel;
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('suno_lang', lang);
+    }
+
+    // 自动检测浏览器语言，默认跟随系统
+    const saved = localStorage.getItem('suno_lang');
+    const auto = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    setLang(saved || auto);
+
+    new APlayer({
+      container: document.getElementById('player'),
+      audio: [{
+        name: 'El Coro Bajo la Torre',
+        artist: 'Suno AI',
+        url: 'https://cdn1.suno.ai/36a33e24-95a8-4667-a915-b43cf7c523c8.mp3',
+        cover: 'https://cdn1.suno.ai/image_36a33e24-95a8-4667-a915-b43cf7c523c8.jpeg',
+        theme: '#ffa500'
+      }]
+    });
+  </script>
+</body>
+</html>
